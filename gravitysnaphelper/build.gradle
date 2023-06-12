@@ -22,4 +22,4 @@ dependencies {
     api 'androidx.recyclerview:recyclerview:1.1.0'
 }
 
-apply from: "$rootProject.projectDir/gradle/publish.gradle"
+//apply from: "$rootProject.projectDir/gradle/publish.gradle"

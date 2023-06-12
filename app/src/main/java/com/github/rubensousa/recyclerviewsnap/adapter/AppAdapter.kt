@@ -9,7 +9,40 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.rubensousa.recyclerviewsnap.R
 import com.github.rubensousa.recyclerviewsnap.model.App
 
-class AppAdapter(private val layoutId: Int = R.layout.adapter) :
+/**
+ * MaterialCardView 这个是一个好东西？ 阴影是这个里面导致的吗？
+ *
+ *  https://juejin.cn/post/6844903946071343118
+ *
+ *  adapter2 是没有效果的
+ *
+ *   加上 android:background="?attr/selectableItemBackground" 就有效果了
+ *
+ *   https://www.jianshu.com/p/13eb4574e988
+ *
+ *  adapter3 是存在效果的
+ *  adapter4 是存在效果的
+ *
+ *
+ *  dispatchDraw
+ *
+ *  RippleDrawable#draw
+ *
+ *  https://www.jianshu.com/p/64a825915da9
+ *
+ *  https://blog.csdn.net/qq_25452989/article/details/87280873
+ *
+ * https://blog.csdn.net/mjlong123123/article/details/88983884
+ *
+ *
+ * https://juejin.cn/s/android%20imageview%20%E8%AE%BE%E7%BD%AE%E8%BE%B9%E6%A1%86
+ *
+ *
+ * https://www.zybuluo.com/act262/note/572262
+ *
+ * 
+ */
+class AppAdapter(private val layoutId: Int = R.layout.adapter2) :
     RecyclerView.Adapter<AppAdapter.VH>() {
 
     private var items = listOf<App>()
@@ -40,6 +73,7 @@ class AppAdapter(private val layoutId: Int = R.layout.adapter) :
         private val ratingTextView: TextView = itemView.findViewById(R.id.ratingTextView)
 
         init {
+            //这个点击能够让前置阴影是否出现
             view.setOnClickListener(this)
         }
 
